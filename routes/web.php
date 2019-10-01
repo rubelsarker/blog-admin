@@ -15,4 +15,6 @@ Route::get('/','User\UserController@home')->name('home');
 Route::get('post','User\UserController@post')->name('post');
 Route::get('about','User\UserController@about')->name('about');
 Route::get('contact','User\UserController@contact')->name('contact');
-
+Route::get('admin-layout',function (){
+    return view('admin.dashboard');
+});
