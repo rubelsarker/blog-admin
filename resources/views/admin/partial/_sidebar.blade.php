@@ -31,8 +31,11 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="{{Request::is('admin/dashboard') ? 'active' : ''}} "><a href="{{route('admin.dashboard')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+            <li class="{{Request::is('admin/categories*') ? 'active': ''}}"><a href="{{route('admin.categories.index')}}"><i class="fa fa-link"></i> <span>Category</span></a></li>
+            <li class="{{Request::is('admin/tags*') ? 'active': ''}}"><a href="{{route('admin.tags.index')}}"><i class="fa fa-link"></i> <span>Tag</span></a></li>
+            <li class="{{Request::is('admin/posts*') ? 'active': ''}}"><a href="{{route('admin.posts.index')}}"><i class="fa fa-link"></i> <span>Post</span></a></li>
+
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                     <span class="pull-right-container">

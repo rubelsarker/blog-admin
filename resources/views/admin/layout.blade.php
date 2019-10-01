@@ -14,6 +14,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         @include('admin.partial._breadcrumbs')
+        @include('admin.partial.msg')
 
         <!-- Main content -->
         <section class="content container-fluid">
