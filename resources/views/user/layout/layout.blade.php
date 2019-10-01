@@ -7,11 +7,9 @@
 <!-- Page Header -->
 @include('user.partial._header')
 <!-- Main Content -->
-<div class="container">
-    <div class="row">
-       @yield('content')
-    </div>
-</div>
+
+@yield('content')
+
 <hr>
 <!-- Footer -->
 @include('user.partial._footer')
