@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{url('')}}/admin/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{url('')}}/admin/bower_components/Ionicons/css/ionicons.min.css">
+        @yield('stylesheet')
         <!-- Theme style -->
         <link rel="stylesheet" href="{{url('')}}/admin/dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -28,5 +29,5 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    @yield('stylesheet')
+
 </head>

@@ -6,12 +6,12 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Create Category </h3>
-                        <a href="{{route('admin.categories.index')}}" class="btn btn-info pull-right">All Category</a>
+                        <h3 class="box-title">Create Tag </h3>
+                        <a href="{{route('admin.tags.index')}}" class="btn btn-info pull-right">All Tags</a>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="{{route('admin.categories.store')}}" method="post">
+                    <form class="form-horizontal" action="{{route('admin.tags.store')}}" method="post">
                         @csrf
                         <div class="box-body">
                             <div class="form-group">
@@ -25,7 +25,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <a type="button"  href="{{route('admin.categories.index')}}" class="btn btn-default">Cancel</a>
+                            <a type="button"  href="{{route('admin.tags.index')}}" class="btn btn-default">Cancel</a>
                             <button type="submit" class="btn btn-info pull-right">Submit</button>
                         </div>
                         <!-- /.box-footer -->

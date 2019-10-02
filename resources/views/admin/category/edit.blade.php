@@ -6,19 +6,20 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Create Category </h3>
+                        <h3 class="box-title">Update Category </h3>
                         <a href="{{route('admin.categories.index')}}" class="btn btn-info pull-right">All Category</a>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="{{route('admin.categories.store')}}" method="post">
+                    <form class="form-horizontal" action="{{route('admin.categories.update',$category->id)}}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                                    <input type="text" value="{{$category->name}}" name="name" class="form-control" id="name" placeholder="Name">
                                 </div>
                             </div>
 

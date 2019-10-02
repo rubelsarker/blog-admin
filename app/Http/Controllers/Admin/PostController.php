@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -14,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->get();
+        return view('admin.post.index',compact('posts'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'sub_title' => 'required',
+            'body' => 'required',
+        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->sub_title = $request->sub_title;
+        $post->slug = Str::slug($request->title);
+        $post->body = $request->body;
+        $post->save();
+        session()->flash('msg','Post Created Successfully');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -46,7 +61,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('admin.post.show',compact('post'));
     }
 
     /**
@@ -57,7 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('admin.post.edit',compact('post'));
     }
 
     /**
@@ -69,7 +86,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'sub_title' => 'required',
+            'body' => 'required',
+        ]);
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->sub_title = $request->sub_title;
+        $post->slug = Str::slug($request->title);
+        $post->body = $request->body;
+        $post->save();
+        session()->flash('msg','Post Updated Successfully');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -80,6 +109,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        session()->flash('msg','Post deleted Successfully');
+        return redirect()->route('admin.posts.index');
     }
 }
