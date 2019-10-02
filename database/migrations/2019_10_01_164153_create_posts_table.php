@@ -20,10 +20,10 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('body');
             $table->string('image')->default('post.jpg');
-            $table->integer('posted_by');
-            $table->boolean('status');
-            $table->boolean('like');
-            $table->boolean('dislike');
+            $table->integer('posted_by')->nullable();
+            $table->boolean('status')->nullable();
+            $table->integer('like')->nullable();
+            $table->integer('dislike')->nullable();
             $table->timestamps();
         });
     }

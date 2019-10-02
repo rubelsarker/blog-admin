@@ -33,15 +33,12 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Category</label>
                                 <div class="col-sm-10">
-                                    <select name="category[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                    <select name="categories[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
                                             style="width: 100%;">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+
                                     </select>
 
                                 </div>
@@ -49,15 +46,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tags</label>
                                 <div class="col-sm-10">
-                                    <select name="tag[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                    <select name="tags[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
                                             style="width: 100%;">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        @foreach($tags as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
